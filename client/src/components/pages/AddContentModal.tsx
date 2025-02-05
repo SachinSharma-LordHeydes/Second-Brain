@@ -19,7 +19,7 @@ interface FormValues {
     type: ContentType
 }
 
-function AddContentModal() {
+const AddContentModal:React.FC=()=> {
     const { modalStatus } = useSelector((state: RootState) => state.modal)
     const dispatch = useDispatch<AppDispatch>()
     const navigate=useNavigate()

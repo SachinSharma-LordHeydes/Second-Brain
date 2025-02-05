@@ -9,7 +9,7 @@ import { AppDispatch } from '../../redux/store'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getHash } from '../../services/operations/link'
 
-function HeroSection() {
+const HeroSection: React.FC = () => {{
 
   const dispatch=useDispatch<AppDispatch>()
   const navigate=useNavigate()

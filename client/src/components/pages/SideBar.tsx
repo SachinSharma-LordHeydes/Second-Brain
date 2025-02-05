@@ -13,7 +13,7 @@ interface sideBarInterface{
     icon:ReactElement
 }
 
-function SideBar() {
+const SideBar:React.FC=()=> {
 
     const dispatch=useDispatch<AppDispatch>()
     const {currentType}=useSelector((state:RootState)=>state.data)

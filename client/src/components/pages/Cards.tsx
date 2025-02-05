@@ -6,7 +6,7 @@ import { getBrainData } from '../../services/operations/data';
 import { useParams } from 'react-router-dom';
 
 
-function Cards() {
+const Cards:React.FC=()=> {
 
   const {currentType}=useSelector((state:RootState)=>state.data)
 

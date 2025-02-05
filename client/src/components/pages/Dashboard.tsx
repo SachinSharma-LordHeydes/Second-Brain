@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import SideBar from './SideBar'
 import HeroSection from './HeroSection'
 
-function Dashboard() {
+const Dashboard:React.FC=()=> {
   return (
     <div>
       <div className='w-full md:w-10/11 mx-auto '>
