@@ -8,6 +8,12 @@ import toast from "react-hot-toast";
 
 const {SIGNUP_URL,SIGNIN_URL} = authEndpoint
 
+// "scripts": {
+  //   "build": "tsc -b",
+  //   "start": "node ./dist/index.js",
+  //   "dev": "nodemon --ext ts --exec ts-node src/index.ts"
+  // },
+
 
 export const signUpOperation = (data: { userName: string; password: string },navigate:NavigateFunction) => {
     return async (dispatch: Dispatch) => {

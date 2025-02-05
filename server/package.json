@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "node dist/app.js",
-    "build": "tsc",   
-    "dev": "nodemon --ext ts --exec ts-node src/index.ts"
+    "build": "tsc",
+    "dev": "ts-node src/app.ts"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
