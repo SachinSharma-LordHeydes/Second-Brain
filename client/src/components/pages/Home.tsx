@@ -19,7 +19,7 @@ const Home:React.FC=()=> {
             <div className='text-center items-center'>
                 <div className='flex gap-x-2 text-center items-center'>
                     <p className='text-2xl font-bold'>Create</p>
-                    <p className='text-lg font-semibold'> my</p>
+                    <p className='text-lg font-semibold'> Your</p>
                 </div>
                 <div className='gap-x-2 flex text-center items-center'>
                     <p className='text-lg font-semibold'>Advance Version Of</p>
