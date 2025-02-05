@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const isSignedUpMiddlewares_1 = require("../middlewares/isSignedUpMiddlewares");
+const contentHandler_1 = require("../controllers/contentHandler");
+const contentRoute = (0, express_1.Router)();
+contentRoute.post("/content", isSignedUpMiddlewares_1.isSignedUpMiddleware, contentHandler_1.postContentHandler);
+contentRoute.get("/content", isSignedUpMiddlewares_1.isSignedUpMiddleware, contentHandler_1.getContentHandler);
+contentRoute.delete("/content", isSignedUpMiddlewares_1.isSignedUpMiddleware, contentHandler_1.deleteContentHandler);
+exports.default = contentRoute;
