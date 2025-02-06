@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/',
+  plugins: [react()],
+  base: './',
   build: {
-    outDir: 'dist', // Ensures the build output goes to the 'dist' directory
+    outDir: 'dist',
   },
   server: {
-    host: true, // Allow the server to be accessed externally
+    host: true,
   },
 })
