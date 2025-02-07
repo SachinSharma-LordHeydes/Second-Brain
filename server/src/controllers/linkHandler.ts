@@ -1,6 +1,7 @@
 import { Request,Response } from "express"
 import { randomString } from "../utils/randomString";
 import linksModel from "../models/linksModel";
+import contentModel from "../models/contentModel";
 
 export const createLinkHandler =async(req:Request,res:Response)=>{
     try {
@@ -45,24 +46,39 @@ export const createLinkHandler =async(req:Request,res:Response)=>{
         });
     }
 }
-
-export const getLinkDetailHandler =async(req:Request,res:Response)=>{
+export const getLinkDetailHandler = async (req: Request, res: Response) => {
     try {
-        const {hash}=req.params;
-        console.log("hash-->",hash)
-        const getLinkDetailResponse=await linksModel.findOne({hash})
+        const { hash } = req.params;
+        console.log("hash-->", hash);
+        const getLinkDetailResponse = await linksModel.findOne({ hash }).populate('userId');
         
+        if (!getLinkDetailResponse) {
+            return res.status(404).json({
+                success: false,
+                message: 'Link not found',
+            });
+        }
+        
+        const getDetailResponse = await contentModel.find({ userId: getLinkDetailResponse.userId , shareable:true });
+
+        if (!getDetailResponse) {
+            return res.status(404).json({
+                success: false,
+                message: 'Content not found for this link',
+            });
+        }
+
         return res.status(200).json({
-            success:true,
-            message:"Link created Successfully",
-            data:getLinkDetailResponse
-        })
+            success: true,
+            message: "Link found successfully",
+            data: getDetailResponse
+        });
 
     } catch (error) {
         console.error(error);
         return res.status(500).json({
-            success:false,
-            message: 'error while fetching link data',
+            success: false,
+            message: 'Error while fetching link data',
         });
     }
-}
+};

@@ -6,6 +6,6 @@ import { createLinkHandler, getLinkDetailHandler } from "../controllers/linkHand
 const linkRoute=Router();
 
 linkRoute.post("/link",isSignedUpMiddleware,createLinkHandler);
-linkRoute.get("/link/:hash",isSignedUpMiddleware,getLinkDetailHandler);
+linkRoute.get("/link/:hash",getLinkDetailHandler);
 
 export default linkRoute
