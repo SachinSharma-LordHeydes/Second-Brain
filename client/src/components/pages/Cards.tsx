@@ -4,33 +4,41 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
 import { getBrainData } from '../../services/operations/data';
 import { useParams } from 'react-router-dom';
+import { getLinkData } from '../../services/operations/link';
 
 
 const Cards:React.FC=()=> {
 
   const {currentType}=useSelector((state:RootState)=>state.data)
 
-  const data = useSelector((state: RootState) => state.data.data);
+  const {data,linkData} = useSelector((state: RootState) => state.data);
   const {hash}=useParams();
 
   let currentData;
   if(hash){
-    currentData=data.filter((value)=>value.shareable===true && value.type.toLowerCase()===currentType.toLowerCase());
+    currentData=linkData.filter((value)=>value.type.toLowerCase()===currentType.toLowerCase());
   }else{
     currentData=data.filter((value)=>value.type.toLowerCase()===currentType.toLowerCase())
   }
 
 
-  useEffect(()=>{
-    console.log("CurrentData-->",currentData)
-  },[currentData])
+  function setCardData(){
+    if(hash){
+      dispatch(getLinkData(hash))
+      currentData=linkData.filter((value)=>value.type.toLowerCase()===currentType.toLowerCase());
+    }else{
+      dispatch(getBrainData())
+      currentData=data.filter((value)=>value.type.toLowerCase()===currentType.toLowerCase())
+    }
+  } 
 
 
   const dispatch=useDispatch<AppDispatch>()
 
   useEffect(()=>{
-    dispatch(getBrainData())
-    console.log("data-->",data)
+
+    setCardData()
+    
   },[dispatch])
 
   return (

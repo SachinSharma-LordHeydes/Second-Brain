@@ -1,3 +1,4 @@
+import { setLinkData } from "../../redux/slices/dataSlice";
 import { AppDispatch } from "../../redux/store"
 import { apiConnect } from "../apiConnect";
 import { linkEndpoint } from "../apis";
@@ -29,6 +30,28 @@ export const getHash=()=>{
             console.log("Error occured while adding Content",error)
             console.error(error.message)
             toast.error("Unable to copy shareable Link");
+        }
+    }
+}
+
+
+export const getLinkData =(hash:string)=>{
+    return async(dispatch:AppDispatch)=>{
+        try {
+
+            const config = {
+                method: "GET" as "GET",
+                url: `${GET_LINK}/${hash}`,
+              };
+
+              
+            const getLinkDataResponse=await apiConnect(config)
+            console.log("get link data Response-->",getLinkDataResponse.data.data)
+            dispatch(setLinkData(getLinkDataResponse.data))
+
+        } catch (error:any) {
+            console.log("error occured while fetching data-->",error);
+            error.message("error occured while fetching data-->",error.message)
         }
     }
 }

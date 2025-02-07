@@ -30,6 +30,8 @@ export const getBrainData =()=>{
     }
 }
 
+
+
 export const addContent = (data: { type: string; link: string; title: string }) => {
     return async (dispatch: AppDispatch) => {
         try {

@@ -1,19 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface data{
+    title: string
+    link: string
+    type: string
+    _id:string
+    shareable:boolean
+}
+
 interface dataState{
-    data:{
-        title: string
-        link: string
-        type: string
-        _id:string
-        shareable:boolean
-    }[],
-    currentType:string
+    data:data[]
+    currentType:string,
+    linkData:data[]
 }
 
 const initialState: dataState = {
     data: [],
-    currentType:'tweets'
+    currentType:'tweets',
+    linkData:[],
   };
   
 
@@ -27,10 +31,13 @@ const dataSlice=createSlice({
         setCurrentType:(state,action:PayloadAction<any>)=>{
             console.log("clicked Type-->",action.payload)
             state.currentType=action.payload
-        }
+        },
+        setLinkData:(state,action:PayloadAction<any>)=>{
+            state.linkData=action.payload.data
+        },
     }
 
 });
 
-export const { setData , setCurrentType } = dataSlice.actions;
+export const { setData , setCurrentType , setLinkData } = dataSlice.actions;
 export default dataSlice.reducer;
