@@ -38,8 +38,8 @@ const Home:React.FC=()=> {
                 </div>
             </div>
             <div className='flex justify-center items-center gap-x-5 mt-5'>
-                <Button text='Sign Up' colour='bg-blue-200' size='xl' onClickHandler={handelSignUp}></Button>
-                <Button text='Sign In' colour='bg-blue-600' size='xl' onClickHandler={handelSignIn}></Button>
+                <Button text='Sign Up' colour='bg-blue-200' size='xl' hideText={false} onClickHandler={handelSignUp}></Button>
+                <Button text='Sign In' colour='bg-blue-600' size='xl' hideText={false} onClickHandler={handelSignIn}></Button>
             </div>
         </div>
     )

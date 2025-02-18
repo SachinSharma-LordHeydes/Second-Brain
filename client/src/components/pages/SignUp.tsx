@@ -62,6 +62,7 @@ const SignUp: React.FC = () => {
                                 colour='bg-blue-700' 
                                 endingIcon={<FaRegArrowAltCircleRight />} 
                                 textColour='text-white'
+                                hideText={false}
                             />
                         </div>
                     </form>

@@ -61,7 +61,7 @@ const SignIn : React.FC = () => {
                             colour='bg-blue-700' 
                             endingIcon={<FaRegArrowAltCircleRight />} 
                             textColour='text-white'
-                            type='submit'
+                            hideText={false}
                         />
                     </div>
                 </form>

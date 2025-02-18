@@ -34,11 +34,7 @@ const SideBar:React.FC=()=> {
         {
             name:"Links",
             icon:<IoLinkSharp />
-        },
-        {
-            name:"Tags",
-            icon:<FaHashtag />
-        },
+        }
     ]
     {/* 'tweets', 'video', 'documents', 'links', 'tags' */}
 

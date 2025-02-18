@@ -9,7 +9,7 @@ import { addContent } from '../../services/operations/data';
 import { useNavigate } from "react-router-dom";
 
 
-const CONTENT_OPTIONS = ['tweets', 'videos', 'documents', 'links', 'tags'] as const
+const CONTENT_OPTIONS = ['tweets', 'videos', 'documents', 'links'] as const
 
 type ContentType = typeof CONTENT_OPTIONS[number]
 

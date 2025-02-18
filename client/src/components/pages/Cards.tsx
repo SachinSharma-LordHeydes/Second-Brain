@@ -53,7 +53,7 @@ const Cards:React.FC=()=> {
           }
       </div>
 
-      <div className='space-y-16 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1 md:gap-x-9'>
+      <div className='space-y-16 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1 md:gap-x-9 mx-auto'>
         {
           currentData.map((val,index)=>(
               <div key={index} className=''>
